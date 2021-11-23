@@ -1,0 +1,6 @@
+FROM debian:latest
+RUN apt update \
+    && apt install -qq ansible ssh -y
+RUN ssh-keygen -t rsa -q -N '' -f ~/.ssh/id_rsa
+RUN service ssh restart
+CMD ["/usr/sbin/sshd","-D"]

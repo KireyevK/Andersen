@@ -1,0 +1,11 @@
+---
+- hosts: group1
+  remote_user: test
+  tasks:
+    - name: copy dir to dest
+      copy: 
+        src: /home/flaskAndersen 
+        dest: /home/test
+        mode: 775
+    - name: run python  
+      shell: "(nohup python3 /home/test/flaskAndersen/app.py &)"
